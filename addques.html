@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="quest-css.css">
+    <title>Question</title>
+    <script>
+        function show1() {
+            document.getElementById('hidden').style.display = 'block';
+            document.getElementById('content').style.height ='100%';
+        }
+        function hide1() {
+            document.getElementById('hidden').style.display = 'none';
+            document.getElementById('content').style.height ='100vh';
+        }
+    </script>
+</head>
+<body style="background-image: url('img/background1.jpg');">
+    <div class="content" id="content">
+        <center>
+            <h1>Create Quiz</h1>
+        </center>
+        <div class="form-group row">
+            <label for="startdate" class="col-sm-2 col-form-label">Start Date</label>
+            <div class="col-sm-4">
+                <input type="date" class="form-control" id="startdate" name="startdate">
+            </div>
+            <label for="enddate" class="col-sm-2 col-form-label">End Date</label>
+            <div class="col-sm-4">
+                <input type="date" class="form-control" id="enddate" name="enddate">
+            </div>
+            <label for="duration" class="col-sm-2 col-form-label">Duration</label>
+            <div class="col-sm-4">
+                <input type="text" class="form-control" id="duration" name="duration" placeholder="Enter Time in Minutes">
+            </div>
+        </div>
+        <div class="form-group row d-flex justify-content-center">
+            <div class="form-group form-check">
+                <input type="checkbox" id="shufques">
+                <label class="form-check-label" for="shufques">Shuffle questions</label>
+            </div>
+            <div class="form-group form-check">
+                <input type="checkbox" id="shufopt">
+                <label class="form-check-label" for="shufopt">Shuffle options</label>
+            </div>
+        </div>
+        <div id="random">
+            <div class="form-group row col-sm-6 mx-auto">
+                <label for="1m" class="col-sm-3 col-form-label">1m</label>
+                <input type="number" class="form-control col-sm-9" id="1m" name="1m"><br><br>
+                <label for="2m" class="col-sm-3 col-form-label">2m</label>
+                <input type="number" class="form-control col-sm-9" id="2m" name="2m"><br><br>
+                <label for="4m" class="col-sm-3 col-form-label">4m</label>
+                <input type="number" class="form-control col-sm-9" id="4m" name="4m"><br><br>
+                <label for="5m" class="col-sm-3 col-form-label">5m</label>
+                <input type="number" class="form-control col-sm-9" id="5m" name="5m"><br><br>
+                <label for="10m" class="col-sm-3 col-form-label">10m</label>
+                <input type="number" class="form-control col-sm-9" id="10m" name="10m"><br><br>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-3 col-form-label">Question Type</label>
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="checkbox" id="mcq" name="mcq" value="mcq">
+                    <label class="form-check-label" for="1m">MCQ</label>
+                </div>
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="checkbox" id="match" name="match" value="match">
+                    <label class="form-check-label" for="2m">Match</label>
+                </div>
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="checkbox" id="trufal" name="trufal" value="trufal">
+                    <label class="form-check-label" for="4m">True or False</label>
+                </div>
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="checkbox" id="short" name="short" value="short">
+                    <label class="form-check-label" for="5m">Short Answer</label>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-3 col-form-label">Complexity</label>
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="checkbox" id="easy" value="easy" name="easy">
+                    <label class="form-check-label" for="easy">Easy</label>
+                </div>
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="checkbox" id="medium" value="medium" name="medium">
+                    <label class="form-check-label" for="medium">Medium</label>
+                </div>
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="checkbox" id="complex" value="complex" name="complex">
+                    <label class="form-check-label" for="complex">Complex</label>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-3 col-form-label">Level</label>
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="checkbox" id="concept" value="concept" name="concept"> 
+                    <label class="form-check-label" for="concept">Concept</label>
+                </div>
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="checkbox" id="practice" value="practice" name="practice">
+                    <label class="form-check-label" for="practice">Practice</label>
+                </div>
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="checkbox" id="skill" value="skill" name="skill">
+                    <label class="form-check-label" for="skill">Skill</label>
+                </div>
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="checkbox" id="apply" value="apply" name="apply">
+                    <label class="form-check-label" for="apply">Apply</label>
+                </div>
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="checkbox" id="proficient" value="proficient" name="proficient">
+                    <label class="form-check-label" for="proficient">Proficient</label>
+                </div>
+            </div>
+            <div class="text-center">
+                <button class="btn btn-primary mr-1" onclick="show1()">Generate questions</button>
+            </div>
+        </div>
+        <div id="hidden" style="display: none;">
+            <div class="modal-body">
+                <table id="fchoice" name="fchoice">
+                    <tr>
+                        <th class="col-md-5">Question</th>
+                        <th class="col-md-2">Level</th>
+                        <th class="col-md-2">Complexity</th>
+                        <th class="col-md-1">Mark</th>
+                        <th class="col-md-1">Type</th>
+                        <th class="col-md-1">Choice</th>
+                    </tr>
+                    <tr id="q1" name="q1">
+                        <td class="col-md-5">What is the National Bird of India</td>
+                        <td class="col-md-2">Concept</td>
+                        <td class="col-md-2">Easy</td>
+                        <td class="col-md-1">2m</td>
+                        <td class="col-md-1">MCQ</td>
+                        <td class="col-md-1"><input type="checkbox" id="check"></td>
+                    </tr>
+                    <tr id="q2" name="q2">
+                        <td class="col-md-5">What is the National Animal of India</td>
+                        <td class="col-md-2">Skill</td>
+                        <td class="col-md-2">Easy</td>
+                        <td class="col-md-1">4m</td>
+                        <td class="col-md-1">SA</td>
+                        <td class="col-md-1"><input type="checkbox" id="check"></td>
+                    </tr>
+                    <tr id="q3" name="q3">
+                        <td class="col-md-5">Cricket is the National Sports of India</td>
+                        <td class="col-md-2">Apply</td>
+                        <td class="col-md-2">Medium</td>
+                        <td class="col-md-1">4m</td>
+                        <td class="col-md-1">TF</td>
+                        <td class="col-md-1"><input type="checkbox" id="check"></td>
+                    </tr>
+                    <tr id="q4" name="q4">
+                        <td class="col-md-5">Who wrote the National Anthem of India</td>
+                        <td class="col-md-2">Complex</td>
+                        <td class="col-md-2">Easy</td>
+                        <td class="col-md-1">5m</td>
+                        <td class="col-md-1">SA</td>
+                        <td class="col-md-1"><input type="checkbox" id="check"></td>
+                    </tr>
+                    <tr id="q5" name="q5">
+                        <td class="col-md-5">What is the National Tree of India</td>
+                        <td class="col-md-2">Proficient</td>
+                        <td class="col-md-2">Medium</td>
+                        <td class="col-md-1">5m</td>
+                        <td class="col-md-1">MCQ</td>
+                        <td class="col-md-1"><input type="checkbox" id="check"></td>
+                    </tr>
+                </table>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Shuffle Unchecked</button>
+                <button type="button" class="btn btn-danger" onclick="hide1()" data-dismiss="modal">Confirm</button>
+            </div>
+        </div>
+</body>
+</html>
