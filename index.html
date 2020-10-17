@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <link rel="stylesheet" type='text/css' href="quest-css.css">
+    <title>Question</title>
+    <script>
+        function show1() {
+            document.getElementById('hidden').style.display = 'block';
+            // document.getElementById('content').style.height = '100%';
+        }
+
+        function hide1() {
+            document.getElementById('hidden').style.display = 'none';
+            // document.getElementById('content').style.height = '200vh';
+        }
+    </script>
+    <style>
+        body {
+            background-repeat: no-repeat;
+            background-size: 100% 100%;
+        }
+
+        .content {
+            max-width: 700px;
+            margin: auto;
+            background-color: white;
+            padding: 20px;
+            height: 100%;
+        }
+    </style>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+    
+    <script type="text/javascript">
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+<script type="text/javascript">
+
+
+$(document).ready(function() {
+    $( "#target").submit(function( event ) {  
+        event.preventDefault();
+        
+
+        var cboxes = document.getElementsByName('type[]');
+        var len = cboxes.length;
+        var typeSelect  =new Array();
+        for (var i=0; i<len; i++) {
+            if(cboxes[i].checked){
+                typeSelect.push(cboxes[i].value);
+            }
+        }
+        
+        
+        var onemark=$('#onemark').val();
+        var twomark=$('#twomark').val();
+        var tenmark=$('#tenmark').val();
+        var fourmark=$('#fourmark').val();
+        var fivemark=$('#fivemark').val();
+        
+        
+        var mark =1;
+        $.ajax({url:"randomQuestion.php?typeSelect="+typeSelect+"&onemark="+onemark+"&twomark="+twomark+"&fourmark="+fourmark+"&fivemark="+fivemark+"&tenmark="+tenmark,cache:false,success:function(result){
+          $('.showResult').html(result);
+        }});
+    });
+});
+
+    </script>
+
+</head>
+
+<body style="background-image: url('img/background1.jpg');">
+    <!-- <body style="background-color: #0CECF3"> -->
+    
+    <div class="content" id="content">
+        <center>
+            <h1>Create Quiz</h1>
+        </center>
+        <div class="form-group row">
+            <label for="startdate" class="col-sm-2 col-form-label">Start Date</label>
+            <div class="col-sm-4">
+                <input type="date" class="form-control" id="startdate" name="startdate">
+            </div>
+            <label for="enddate" class="col-sm-2 col-form-label">End Date</label>
+            <div class="col-sm-4">
+                <input type="date" class="form-control" id="enddate" name="enddate">
+            </div>
+            <label for="duration" class="col-sm-2 col-form-label">Duration</label>
+            <div class="col-sm-4">
+                <input type="text" class="form-control" id="duration" name="duration" placeholder="Enter Time in Minutes">
+            </div>
+        </div>
+        <div class="form-group row d-flex justify-content-center">
+            <div class="form-group form-check">
+                <input type="checkbox" id="shufques">
+                <label class="form-check-label" for="shufques">Shuffle questions</label>
+            </div>
+            <div class="form-group form-check">
+                <input type="checkbox" id="shufopt">
+                <label class="form-check-label" for="shufopt">Shuffle options</label>
+            </div>
+        </div>
+        <form id="target">
+            <div class="form-group row col-sm-6 mx-auto">
+                <label for="1m" class="col-sm-3 col-form-label">1m</label>
+                <input type="number" class="form-control col-sm-9" name="onemark" id="onemark" value="1m"><br><br>
+                <label for="2m" class="col-sm-3 col-form-label">2m</label>
+                <input type="number" class="form-control col-sm-9" name="twomark" id="twomark" value="2m"><br><br>
+                <label for="4m" class="col-sm-3 col-form-label">4m</label>
+                <input type="number" class="form-control col-sm-9" name="fourmark" id="fourmark" value="4m"><br><br>
+                <label for="5m" class="col-sm-3 col-form-label">5m</label>
+                <input type="number" class="form-control col-sm-9" name="fivemark" id="fivemark" value="5m"><br><br>
+                <label for="10m" class="col-sm-3 col-form-label">10m</label>
+                <input type="number" class="form-control col-sm-9" name="tenmark" id="tenmark" value="10m"><br><br>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-3 col-form-label">Question Type</label>
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="checkbox" id="type[]" name="type[]" value="mcq">
+                    <label class="form-check-label" for="1m">MCQ</label>
+                </div>
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="checkbox" id="type[]" name="type[]" value="match">
+                    <label class="form-check-label" for="2m">Match</label>
+                </div>
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="checkbox" id="type[]" name="type[]" value="trufal">
+                    <label class="form-check-label" for="4m">True or False</label>
+                </div>
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="checkbox" id="type[]" name="type[]" value="short">
+                    <label class="form-check-label" for="5m">Short Answer</label>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-3 col-form-label">Complexity</label>
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="checkbox" name="complexity" id="complexity" value="easy">
+                    <label class="form-check-label" for="easy">Easy</label>
+                </div>
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="checkbox" name="complexity" id="complexity" value="medium">
+                    <label class="form-check-label" for="medium">Medium</label>
+                </div>
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="checkbox" name="complexity" id="complexity" value="complex">
+                    <label class="form-check-label" for="complex">Complex</label>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-3 col-form-label">Level</label>
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="checkbox" id="level" name="level"value="concept">
+                    <label class="form-check-label" for="concept">Concept</label>
+                </div>
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="checkbox" id="level" name="level" value="practice">
+                    <label class="form-check-label" for="practice">Practice</label>
+                </div>
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="checkbox" id="level" name="level" value="skill">
+                    <label class="form-check-label" for="skill">Skill</label>
+                </div>
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="checkbox" id="level" name="level" value="apply">
+                    <label class="form-check-label" for="apply">Apply</label>
+                </div>
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="checkbox" id="level" name="level" value="proficient">
+                    <label class="form-check-label" for="proficient">Proficient</label>
+                </div>
+            </div>
+            <div class="form-group row">
+                <label for="totalno" class="col-sm-3 col-form-label">Number of Questions</label>
+                <div class="col-sm-4">
+                    <input type="number" class="form-control" id="totalqn" name="totalqn" >
+                </div>
+            </div>
+            <div class="text-center">
+                <input type="submit" name="submit" class="btn btn-primary mr-1" data-toggle="modal" data-target="#addmodal" value="Generate questions" onclick="show1()">
+                
+            </div>
+            <br><br>
+        </div>
+
+    </div>
+    </form>
+
+    
+
+        <div id="hidden" style="display: none;" class="content">
+
+            <div class="showResult"></div>
+
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Shuffle Unchecked</button>
+                <button type="button" class="btn btn-danger" onclick="hide1()" data-dismiss="modal">Confirm</button>
+            </div>
+        </div>
+    </div>
+
+</body>
+
+</html>;
