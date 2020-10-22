@@ -50,10 +50,12 @@ $(document).ready(function() {
 
         var cboxes = document.getElementsByName('type[]');
         var len = cboxes.length;
-        var typeSelect  =new Array();
+
+        var typeSelect  =new Array(0,0,0,0);
         for (var i=0; i<len; i++) {
             if(cboxes[i].checked){
-                typeSelect.push(cboxes[i].value);
+                typeSelect[i]=1;
+
             }
         }
         
@@ -83,7 +85,11 @@ $(document).ready(function() {
         <center>
             <h1>Create Quiz</h1>
         </center>
+
+
+
         <div class="form-group row">
+
             <label for="startdate" class="col-sm-2 col-form-label">Start Date</label>
             <div class="col-sm-4">
                 <input type="date" class="form-control" id="startdate" name="startdate">
@@ -106,7 +112,11 @@ $(document).ready(function() {
                 <input type="checkbox" id="shufopt">
                 <label class="form-check-label" for="shufopt">Shuffle options</label>
             </div>
+
+       
+
         </div>
+
         <form id="target">
             <div class="form-group row col-sm-6 mx-auto">
                 <label for="1m" class="col-sm-3 col-form-label">1m</label>
