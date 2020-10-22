@@ -9,5 +9,5 @@ function OpenCon($db)
  return $conn;
  }
 
-function CloseCon1($conn) { $conn -> close(); }
+function CloseCon($conn) { $conn -> close(); }
 ?>
